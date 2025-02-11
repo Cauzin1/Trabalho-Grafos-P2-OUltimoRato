@@ -68,7 +68,7 @@ g++ -o main main.cpp grafo.cpp -I "C:/Users/Cauzin/Trabalho 2 Grafos/"
 grafo.txt: Arquivo de entrada contendo a descrição do grafo.
 
 Formato do Arquivo de Entrada (exemplo usado):
-
+git a
 1 1 1  
 4  
 10 20 30 40  
