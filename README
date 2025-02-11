@@ -1,0 +1,149 @@
+# Trabalho 2 - Teoria dos Grafos
+
+Este projeto implementa um grafo utilizando duas estruturas de dados: **matriz de adjacência** e **lista de adjacência**. O objetivo é realizar operações básicas em grafos, como inserção e exclusão de nós e arestas, além de calcular propriedades como grau máximo, completude e maior menor distância.
+
+## Estrutura do Projeto
+
+O projeto é composto pelos seguintes arquivos:
+
+- **`grafo.hpp`**: Contém as definições das classes `GrafoMatriz` e `GrafoLista`.
+- **`grafo.cpp`**: Implementação das funcionalidades dos grafos.
+- **`main.cpp`**: Função principal que processa os comandos e executa as operações no grafo.
+- **`grafo.txt`**: Arquivo de entrada contendo a descrição de um grafo.
+
+## Funcionalidades Implementadas
+
+### 1. Estruturas de Grafos:
+- **Matriz de Adjacência:**
+  - Representação do grafo usando uma matriz quadrada.
+  - Suporte para grafos direcionados e não direcionados.
+  - Suporte para grafos ponderados e não ponderados.
+
+- **Lista de Adjacência:**
+  - Representação do grafo usando um vetor de listas.
+  - Suporte para grafos direcionados e não direcionados.
+  - Suporte para grafos ponderados e não ponderados.
+
+### 2. Operações Básicas:
+- **Inserção de Nós:**
+  - Adiciona novos nós ao grafo.
+  - Redimensionamento dinâmico da matriz ou lista.
+
+- **Inserção de Arestas:**
+  - Adiciona arestas entre nós, com suporte para pesos.
+
+- **Exclusão de Nós:**
+  - Remove um nó e todas as suas arestas associadas.
+  - Reindexação automática dos nós restantes.
+
+- **Exclusão de Arestas:**
+  - Remove uma aresta específica entre dois nós.
+
+### 3. Propriedades do Grafo:
+- **Grau Máximo:**
+  - Calcula o maior grau entre todos os nós do grafo.
+
+- **Completude:**
+  - Verifica se o grafo é completo (todos os nós estão conectados entre si).
+
+- **Maior Menor Distância:**
+  - Calcula a maior distância mínima entre todos os pares de nós alcançáveis.
+  - Utiliza o algoritmo de Dijkstra para encontrar as distâncias mínimas.
+
+## Como Compilar e Executar
+
+### Compilação:
+Para compilar o projeto, utilize o seguinte comando no terminal:
+
+```bash
+g++ -o main main.cpp grafo.cpp -I "C:/Users/Cauzin/Trabalho 2 Grafos/"
+
+
+.\main.exe -d -l grafo.txt
+
+-d: Indica que o grafo é direcionado.
+
+-l: Usa a lista de adjacência para representar o grafo.
+
+grafo.txt: Arquivo de entrada contendo a descrição do grafo.
+
+Formato do Arquivo de Entrada (exemplo usado):
+
+1 1 1  
+4  
+10 20 30 40  
+6  
+0 1 5.5  
+1 2 3.2  
+2 3 8.23  
+3 0 2.1  
+0 2 4.7  
+1 3 1.8  
+
+1 1 1: Indica que o grafo é direcionado, ponderado nos vértices e ponderado nas arestas.
+
+4: Número de nós no grafo.
+
+10 20 30 40: Pesos dos vértices (opcional, dependendo da implementação).
+
+6: Número de arestas no grafo.
+
+0 1 5.5: Aresta do nó 0 para o nó 1 com peso 5.5.
+
+Exemplo de saída:
+
+Adicionando aresta: 0 -> 1 com peso 5.5
+Adicionando aresta: 1 -> 2 com peso 3.2
+Adicionando aresta: 2 -> 3 com peso 8.23
+Adicionando aresta: 3 -> 0 com peso 2.1
+Adicionando aresta: 0 -> 2 com peso 4.7
+Adicionando aresta: 1 -> 3 com peso 1.8
+Apos carregar o arquivo:
+No 0: (1, 5.5) (2, 4.7)
+No 1: (2, 3.2) (3, 1.8)
+No 2: (3, 8.23)
+No 3: (0, 2.1)
+Excluindo no 1...
+Apos excluir o no 1:
+No 0: (1, 4.7)
+No 1: (2, 8.23)
+No 2: (0, 2.1)
+Excluindo primeira aresta do no 2...
+Apos excluir a primeira aresta do no 2:
+No 0: (1, 4.7)
+No 1:
+No 2: (0, 2.1)
+Grau: 2
+Ordem: 3
+Direcionado: Sim
+Vertices ponderados: Sim
+Arestas ponderadas: Sim
+Completo: Nao
+Maior menor distancia: 6.8
+
+
+Dificuldades e Soluções
+Reindexação após Exclusão:
+
+Problema: Manter a consistência dos IDs dos nós após a exclusão.
+Solução: Atualização manual de todas as referências às arestas.
+Cálculo da Maior Menor Distância:
+
+Problema: Distâncias infinitas entre nós não alcançáveis.
+Solução: Ignorar pares de nós não alcançáveis no cálculo.
+Eficiência:
+
+Problema: Cálculos lentos em grafos grandes.
+Solução: Uso de estruturas de dados eficientes, como filas de prioridade.
+Próximos Passos
+Implementação de algoritmos mais avançados, como Floyd-Warshall ou Bellman-Ford.
+Extensão do projeto para suportar grafos com pesos negativos.
+Melhoria na interface de usuário para facilitar a execução de testes.
+Referências
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., & Stein, C. (2009). Introduction to Algorithms. MIT Press.
+Sedgewick, R., & Wayne, K. (2011). Algorithms. Addison-Wesley.
+Autor
+Nome: Thomás Sousa Causin Alves
+Disciplina: Teoria dos Grafos
+Professor: Gabriel Souza
+Instituição: Universidade Federal De Juiz de Fora
